@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= Question.find(@answer.question_id).read_attribute(:body) %>
+</p>
+
+<p>
+  <strong>Situation:</strong>
+  <%= @answer.situation %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @answer.task %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @answer.action %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @answer.result %>
+</p>
+
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>
