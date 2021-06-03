@@ -11,9 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :question %>
-    <%= form.collection_select :question_id, Question.all, :id, :body %>
+<div class="field">
+    <%= form.label :question_id%>
+    <%= form.text_area :question_id %>
+    <%# <%= form.collection_select :question_id, Question.all, :id, :body %> 
   </div>
 
   <div class="field">

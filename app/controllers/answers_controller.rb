@@ -14,7 +14,9 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
+    @question = Question.find(params[:question])
     @answer = Answer.new
+    # Question.find(@question.id).read_attribute(:id)
   end
 
   # GET /answers/1/edit
@@ -24,6 +26,7 @@ class AnswersController < ApplicationController
   # POST /answers or /answers.json
   def create
     @answer = Answer.new(answer_params)
+    # @answer = Answer.new(answer_params[:situation, :task, :action, :result, @question.read_attribute[:id]])
 
     respond_to do |format|
       if @answer.save
@@ -59,6 +62,11 @@ class AnswersController < ApplicationController
   end
 
   private
+
+    def get_question
+      @question = Question.find(params[:id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_answer
       @answer = Answer.find(params[:id])
@@ -66,6 +74,6 @@ class AnswersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def answer_params
-      params.require(:answer).permit(:situation, :task, :action, :result, :question_id)
+      params.require(:answer).permit(:question, :situation, :task, :action, :result, :question_id)
     end
 end

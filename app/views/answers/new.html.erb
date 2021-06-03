@@ -1,5 +1,10 @@
 <h1>New Answer</h1>
 
+<p>
+  <strong>Question:</strong>
+  <%= Question.find(@question.id).read_attribute(:body) %>
+</p>
+
 <%= render 'form', answer: @answer %>
 
 <%= link_to 'Back', answers_path %>

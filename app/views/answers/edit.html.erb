@@ -1,5 +1,10 @@
 <h1>Editing Answer</h1>
 
+<p>
+  <strong>Question:</strong>
+  <%= Question.find(@answer.question_id).read_attribute(:body) %>
+</p>
+
 <%= render 'form', answer: @answer %>
 
 <%= link_to 'Show', @answer %> |
